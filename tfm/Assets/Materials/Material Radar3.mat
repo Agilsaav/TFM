@@ -85,8 +85,9 @@ Material:
     - _Surface: 0
     - _WorkflowMode: 1
     - _ZWrite: 1
+    - _transparency: 1
     m_Colors:
-    - Color_6B90766: {r: 0.9247464, g: 7.552344, b: 0.106872596, a: 0}
+    - Color_6B90766: {r: 12.047059, g: 95.87451, b: 1.5058824, a: 0}
     - _BaseColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}

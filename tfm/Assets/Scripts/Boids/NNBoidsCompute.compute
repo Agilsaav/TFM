@@ -1,0 +1,76 @@
+﻿// Each #kernel tells which function to compile; you can have many kernels
+#pragma kernel CSMain
+static const int threadGroupSize = 1024;
+
+struct agentDataBuffer
+{
+	int NNCount;
+	int avoidCount;
+	int predNN;
+
+	float3 position;
+	float3 forwardDir;
+
+	float3 alignmentMove; //Mean of directions
+	float3 cohesionMove;  //Mean of positions
+	float3 avoidanceMove; //Mean of difference between Position
+	float3 runDirection;
+
+};
+
+struct predDataBuffer
+{
+	float3 position;
+};
+
+RWStructuredBuffer<agentDataBuffer> boidsData;
+RWStructuredBuffer<predDataBuffer> predData;
+int numAgents;
+int numPred;
+float viewRadius;
+float avoidRadius;
+float predRadius;
+
+[numthreads(threadGroupSize, 1, 1)]
+void CSMain (uint3 id : SV_DispatchThreadID)
+{
+	for (int i = 0; i < numAgents; i++) 
+	{
+		if (id.x != i) 
+		{
+			float3 diff = boidsData[i].position - boidsData[id.x].position;
+			float dist = (diff.x * diff.x) + (diff.y * diff.y) + (diff.z * diff.z);
+
+			if (dist < viewRadius * viewRadius)
+			{
+				boidsData[id.x].alignmentMove += boidsData[i].forwardDir;
+				boidsData[id.x].cohesionMove += boidsData[i].position;
+				boidsData[id.x].NNCount += 1;
+
+				if (dist < avoidRadius * avoidRadius)
+				{
+					boidsData[id.x].avoidanceMove -= diff;
+					boidsData[id.x].avoidCount += 1;
+				}
+			}
+		}
+	}
+
+	boidsData[id.x].alignmentMove /= boidsData[id.x].NNCount;
+	boidsData[id.x].cohesionMove /= boidsData[id.x].NNCount;
+	boidsData[id.x].avoidanceMove /= boidsData[id.x].avoidCount;
+
+
+	for (int j = 0; j < numPred; j++)
+	{
+		float3 diffPred = boidsData[id.x].position - predData[j].position;
+		float distPred = (diffPred.x * diffPred.x) + (diffPred.y * diffPred.y) + (diffPred.z * diffPred.z);
+		if (distPred < predRadius * predRadius)
+		{
+			boidsData[id.x].runDirection += diffPred;
+			boidsData[id.x].predNN += 1;
+		}
+	}
+
+	boidsData[id.x].runDirection /= boidsData[id.x].predNN;
+}

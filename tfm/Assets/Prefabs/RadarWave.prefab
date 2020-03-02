@@ -101,7 +101,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7921879158093013994}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cc822e924556c9e4d8785058af0fbeb6, type: 3}
   m_Name: 
@@ -124,3 +124,4 @@ MonoBehaviour:
   waveSeconds: 0.1
   alphaPercentatgeChange: 0.5
   alphaStep: 0.05
+  MainWave: 1
