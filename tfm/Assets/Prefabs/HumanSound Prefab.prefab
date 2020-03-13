@@ -52,7 +52,7 @@ MonoBehaviour:
   noiseScale: 2.5
   noiseFreq: 5
   noiseSpeed: 10
-  pixelOffset: 0.03
+  pixelOffset: 0.01
   pixelStep: 0.00008
 --- !u!82 &4202177690309825186
 AudioSource:

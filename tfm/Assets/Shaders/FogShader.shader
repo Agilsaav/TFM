@@ -21,6 +21,7 @@
 			#include "UnityCG.cginc"
 
 			sampler2D _CameraDepthTexture;
+			sampler2D sampler_CameraDepthTexture;
 			fixed4 _FogColor;
 			float _DepthStart, _DepthDistance;
 
@@ -42,18 +43,35 @@
                 v2f o;
                 o.vertex = UnityObjectToClipPos(v.vertex);
 				o.scrPos = ComputeScreenPos(o.vertex);
+				//o.scrPos = ComputeNonStereoScreenPos(o.vertex);
                 o.uv = v.uv;
                 return o;
             }
 
             sampler2D _MainTex;
+			half4 _MainTex_ST;
 
 			fixed4 frag(v2f i) : COLOR
 			{
-				float depthValue = Linear01Depth(tex2Dproj(_CameraDepthTexture, UNITY_PROJ_COORD(i.scrPos)).r) * (_ProjectionParams.z/1000.0f); //* _ProjectionParams.z -> Far plane. I need to divide it because of the interaction with the waves
+				//float depthValue = Linear01Depth(tex2Dproj(_CameraDepthTexture, UNITY_PROJ_COORD(i.scrPos)).r) * (_ProjectionParams.z/1000.0f); //* _ProjectionParams.z -> Far plane. I need to divide it because of the interaction with the waves
+				//depthValue = saturate((depthValue - _DepthStart) / _DepthDistance);
+				//fixed4 fogColor = _FogColor * depthValue;
+				//fixed4 col = tex2Dproj(_MainTex, i.scrPos);
+
+				float2 screenUV = i.scrPos.xy / i.scrPos.w;
+				#if UNITY_SINGLE_PASS_STEREO
+				// If Single-Pass Stereo mode is active, transform the
+				// coordinates to get the correct output UV for the current eye.
+				float4 scaleOffset = unity_StereoScaleOffset[unity_StereoEyeIndex];
+				screenUV = (screenUV - scaleOffset.zw) / scaleOffset.xy;
+				#endif
+
+				float depthValue = SAMPLE_DEPTH_TEXTURE(_CameraDepthTexture, UnityStereoTransformScreenSpaceTex(screenUV));
+								
+				//float depthValue = Linear01Depth(tex2Dproj(_CameraDepthTexture, UNITY_PROJ_COORD(UnityStereoScreenSpaceUVAdjust(i.scrPos, _MainTex_ST))).r) * (_ProjectionParams.z/1000.0f); //* _ProjectionParams.z -> Far plane. I need to divide it because of the interaction with the waves
 				depthValue = saturate((depthValue - _DepthStart) / _DepthDistance);
 				fixed4 fogColor = _FogColor * depthValue;
-				fixed4 col = tex2Dproj(_MainTex, i.scrPos);
+				fixed4 col = tex2Dproj(_MainTex, UnityStereoScreenSpaceUVAdjust(i.scrPos, _MainTex_ST));
 				
                 return lerp(col, fogColor, depthValue);
             }

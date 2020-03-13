@@ -51,9 +51,9 @@ public sealed class UWEffectRenderer : PostProcessEffectRenderer<UWEffect>
             m_Material.SetFloat("_DepthStart", settings.depthStart);
             m_Material.SetFloat("_DepthDistance", settings.depthDistance);
         }
-           
 
-        
+
+
 
         context.command.Blit(context.source, context.destination, m_Material);
 

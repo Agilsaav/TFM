@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace WavesBehavior
@@ -35,17 +34,11 @@ namespace WavesBehavior
         private void Start()
         {
             if (activateCollisions) timer = timeBetweenWavesCollision;
-            if (SpawnInTime) timer = secondsBetweenSpawn;
+            if (SpawnInTime) timer = Random.Range(0.0f, secondsBetweenSpawn);
         }
 
         void Update()
         {
-            if (Input.GetKeyDown(KeyCode.H))
-            {
-                if (!activateCollisions && !SpawnInTime)
-                    StartCoroutine(SpawnWaves());
-            }
-
             if (SpawnInTime && (timer >= secondsBetweenSpawn))
             {
                 timer = 0.0f;
@@ -64,6 +57,12 @@ namespace WavesBehavior
                 timer = 0.0f;
                 StartCoroutine(SpawnWaves());
             }
+        }
+
+        public void SpawnMainWave()
+        {
+            if (!activateCollisions && !SpawnInTime)
+                StartCoroutine(SpawnWaves());
         }
 
         private IEnumerator SpawnWaves()

@@ -17,8 +17,8 @@ public class EffectsModifier : MonoBehaviour
     [Header("Underwater Effect Settings")]
     [SerializeField] float noiseScale = 2.5f;
     [SerializeField] float noiseFreq = 5.0f;
-    [SerializeField] float noiseSpeed = 10.0f;
-    [SerializeField] float pixelOffset = 0.003f; //0.008f 
+    [SerializeField] float noiseSpeed = 5.0f;
+    [SerializeField] float pixelOffset = 0.001f; //0.003f 
     [SerializeField] float depthStart = 0.0f;
     [SerializeField] float depthDist = 20.0f;
 

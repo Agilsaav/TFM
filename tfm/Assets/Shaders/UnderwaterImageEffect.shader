@@ -55,8 +55,18 @@
             sampler2D _MainTex;
 
 			fixed4 frag(v2f i) : COLOR
-			{
-				float depthValue = Linear01Depth(tex2Dproj(_CameraDepthTexture, UNITY_PROJ_COORD(i.scrPos)).r) * (_ProjectionParams.z);
+			{				
+				float2 screenUV = i.scrPos.xy / i.scrPos.w;
+				#if UNITY_SINGLE_PASS_STEREO
+				// If Single-Pass Stereo mode is active, transform the
+				// coordinates to get the correct output UV for the current eye.
+				float4 scaleOffset = unity_StereoScaleOffset[unity_StereoEyeIndex];
+				screenUV = (screenUV - scaleOffset.zw) / scaleOffset.xy;
+				#endif
+
+				float depthValue = Linear01Depth(SAMPLE_DEPTH_TEXTURE(_CameraDepthTexture, UnityStereoTransformScreenSpaceTex(screenUV)))* (_ProjectionParams.z/1.0f);
+			
+				//float depthValue = Linear01Depth(tex2Dproj(_CameraDepthTexture, UNITY_PROJ_COORD(i.scrPos)).r) * (_ProjectionParams.z);
 				//float depthValue = Linear01Depth(tex2Dproj(_CameraDepthTexture, UNITY_PROJ_COORD(i.scrPos)).r);
 				depthValue = 1 - saturate((depthValue - _DepthStart) / _DepthDistance);
 
