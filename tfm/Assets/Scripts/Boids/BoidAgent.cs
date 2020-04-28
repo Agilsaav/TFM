@@ -7,7 +7,7 @@ namespace Boids
     {
         BoidAgentSettings agentSettings;
 
-        Transform agentTransform;
+        Transform agentTransform, target;
         Behaviors behaviors;
         Vector3 position, velocity, forwardDirection;
         Vector3 cohesionCurrVel;
@@ -26,6 +26,7 @@ namespace Boids
 
         private void Awake()
         {
+            target = Camera.main.transform;
             agentTransform = transform;
             behaviors = GetComponent<Behaviors>();
         }
@@ -38,7 +39,7 @@ namespace Boids
             velocity = ((settings.minSpeed + settings.maxSpeed) / 2.0f) * forwardDirection;
         }
 
-        public void ComputeAgentBehavior(int NNCount, int avoidCount, int predCount, Vector3 alignmentMove, Vector3 avoidanceMove, Vector3 cohesionMove, Vector3 runDirection)
+        public void ComputeAgentBehavior(int NNCount, int avoidCount, int predCount, Vector3 alignmentMove, Vector3 avoidanceMove, Vector3 cohesionMove, Vector3 runDirection, bool bTarget)
         {
             Vector3 acceleration = Vector3.zero;
 
@@ -49,6 +50,8 @@ namespace Boids
             acceleration += behaviors.ComputeRunFromPredatorBehavior(predCount, runDirection, agentSettings.predatorWeight);
 
             acceleration += behaviors.ComputeEnvironmentColisionsBehavior(position, forwardDirection, agentSettings.collisionWeight, agentSettings.collisionAvoidDistance, agentSettings.sphereCastRadius, agentSettings.obstaclesLayer);
+
+            if (bTarget) acceleration += behaviors.ComputeTargetBehavior(target.position, transform.position, agentSettings.targetDist, agentSettings.targetWeight);
 
             velocity += acceleration * Time.deltaTime;
         }

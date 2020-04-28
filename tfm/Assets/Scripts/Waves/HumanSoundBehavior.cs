@@ -8,9 +8,11 @@ namespace WavesBehavior
         [SerializeField] float newIntensity = 1 / 5.0f;
         [SerializeField] float recoveryTime = 1.5f;
 
+        [Header("Clips Settings")]
         [SerializeField] float startVolume = 0.8f;
         [SerializeField] float volumeStep = 0.0001f;
-        [SerializeField] AudioClip clip = null;
+        [SerializeField] float audioLength = 5.0f;
+        [SerializeField] AudioClip[] clips;
 
         [Header("Blur Effect Settings")]
         [Range(0.1f, 20f), Tooltip("Blur Noise Scale.")]
@@ -39,7 +41,7 @@ namespace WavesBehavior
             humanSoundBehavior = GetComponent<HumanSoundBehavior>();
             audioSource = GetComponent<AudioSource>();
             waveSoundManager = FindObjectOfType<WaveSoundManager>();
-            waveSoundManager.AssingClip(audioSource, clip);
+            waveSoundManager.AssingClip(audioSource, clips[Random.Range(0, clips.Length)]);
             startIntensity = 1.0f / newIntensity;
         }
 
@@ -96,7 +98,7 @@ namespace WavesBehavior
         private void DestroySound()
         {
             effectsModifier.DeactivateBlur();
-            Destroy(gameObject);
+            Destroy(gameObject, audioLength);
         }
     }
 }

@@ -68,17 +68,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27aaa9e9119a60641a62a6827f5c7a2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waveObject: {fileID: 7921879158093013994, guid: bc10d3287e6af65438f36540e7b8df27,
-    type: 3}
+  waveObjects:
+  - {fileID: 7921879158093013994, guid: bc10d3287e6af65438f36540e7b8df27, type: 3}
   numberOfWaves: 5
   secondsBetweenWaves: 0.5
   activateCollisions: 0
   timeBetweenWavesCollision: 5
   SpawnInTime: 1
-  secondsBetweenSpawn: 10
+  secondsBetweenSpawn: 20
   volumeStart: 1
   volumeStep: 0.0005
-  clip: {fileID: 8300000, guid: b78f690f94c71d946a4dab66f8ee2e45, type: 3}
+  clip:
+  - {fileID: 8300000, guid: b78f690f94c71d946a4dab66f8ee2e45, type: 3}
 --- !u!82 &6809331117329507780
 AudioSource:
   m_ObjectHideFlags: 0

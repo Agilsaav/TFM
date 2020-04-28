@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d164ca9fa6fc4b4c86070f5a5d54945, type: 3}
   m_Name: UWEffect
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   enabled:
     overrideState: 1
     value: 1
@@ -1566,4 +1566,4 @@ MonoBehaviour:
     value: 10
   pixelOffset:
     overrideState: 1
-    value: -0.000079996884
+    value: 0.008050015

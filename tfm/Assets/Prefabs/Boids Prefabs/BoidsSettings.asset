@@ -25,6 +25,8 @@ MonoBehaviour:
   sphereCastRadius: 0.1
   predatorRadius: 10
   predatorWeight: 5
+  targetDist: 50
+  targetWeight: 15
   obstaclesLayer:
     serializedVersion: 2
     m_Bits: 512

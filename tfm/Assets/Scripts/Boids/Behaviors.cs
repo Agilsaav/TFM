@@ -66,6 +66,16 @@ namespace Boids
             else return Vector3.zero;
         }
 
+        public Vector3 ComputeTargetBehavior(Vector3 targetPos, Vector3 boidPos, float targetDist, float targetWeight)
+        {
+            if (Vector3.Distance(targetPos, boidPos) < targetDist)
+            {
+                Vector3 targetMove = targetPos - boidPos;
+                return LimitMove(targetMove, targetWeight);
+            }
+            else return Vector3.zero;
+        }
+
         private Vector3 LimitMove(Vector3 Move, float weight)
         {
             if (Move != Vector3.zero && (Move.magnitude > weight * weight))

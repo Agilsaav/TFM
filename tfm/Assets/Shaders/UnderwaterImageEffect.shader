@@ -76,6 +76,8 @@
 				float4 noiseToDirection = float4(cos(noise * M_PI * 2), sin(noise * M_PI * 2), 0, 0);
 
 				fixed4 col = tex2Dproj(_MainTex, i.scrPos + (normalize(noiseToDirection) * _PixelOffset * depthValue));
+
+				//col = fixed4(noise, noise, noise, 1);
                 return col;
             }
             ENDCG

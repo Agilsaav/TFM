@@ -23,6 +23,9 @@ namespace Boids
         public float predatorRadius = 5.0f;
         public float predatorWeight = 1.0f;
 
+        public float targetDist = 50.0f;
+        public float targetWeight = 1.0f;
+
         public LayerMask obstaclesLayer;
     }
 }

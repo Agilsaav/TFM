@@ -47,6 +47,16 @@ namespace WavesBehavior
             m_ObjectRenderer.material.SetColor("_Emission", intensity * col);
         }
 
+        public bool GetMainWaveBool()
+        {
+            return MainWave;
+        }
+
+        public void ActivateMainWave()
+        {
+            MainWave = true;
+        }
+
         private IEnumerator ChangeWaveRadius()
         {
             while (transform.localScale.x <= maxDist)

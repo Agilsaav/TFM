@@ -47,13 +47,24 @@ MonoBehaviour:
   newIntensity: 0.1
   recoveryTime: 10
   startVolume: 0.8
-  volumeStep: 0.005
-  clip: {fileID: 8300000, guid: 18ebefc3e48557742a1f2496108fe561, type: 3}
+  volumeStep: 0.001
+  audioLength: 8
+  clips:
+  - {fileID: 8300000, guid: 8fe32714f17457b4590d884db95f4fbe, type: 3}
+  - {fileID: 8300000, guid: 6b1cafb89678e564088e39cf096492e6, type: 3}
+  - {fileID: 8300000, guid: 6300b51c3eda8d7429edc1eaadb5714a, type: 3}
+  - {fileID: 8300000, guid: 5b2a7724fa63b3743a597b2f05e8b66e, type: 3}
+  - {fileID: 8300000, guid: b533126409c9c0d4286f261d51edd9ad, type: 3}
+  - {fileID: 8300000, guid: cb195b17f6f1104408b6962eeca38687, type: 3}
+  - {fileID: 8300000, guid: c6cda75f5fdab4f439d31b926585b627, type: 3}
+  - {fileID: 8300000, guid: d416597f87ed88040803e11cf65a4811, type: 3}
+  - {fileID: 8300000, guid: dff186b0e5d15cb4b98ffe0efbbf439a, type: 3}
+  - {fileID: 8300000, guid: 9d79f3cf290134647bf56e4f06dbab06, type: 3}
   noiseScale: 2.5
   noiseFreq: 5
   noiseSpeed: 10
   pixelOffset: 0.01
-  pixelStep: 0.00008
+  pixelStep: 0.00003
 --- !u!82 &4202177690309825186
 AudioSource:
   m_ObjectHideFlags: 0

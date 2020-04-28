@@ -67,6 +67,7 @@
 				#endif
 
 				float depthValue = SAMPLE_DEPTH_TEXTURE(_CameraDepthTexture, UnityStereoTransformScreenSpaceTex(screenUV));
+				//float depthValue = Linear01Depth(SAMPLE_DEPTH_TEXTURE(_CameraDepthTexture, UnityStereoTransformScreenSpaceTex(screenUV))) * (_ProjectionParams.z / 1.0f);
 								
 				//float depthValue = Linear01Depth(tex2Dproj(_CameraDepthTexture, UNITY_PROJ_COORD(UnityStereoScreenSpaceUVAdjust(i.scrPos, _MainTex_ST))).r) * (_ProjectionParams.z/1000.0f); //* _ProjectionParams.z -> Far plane. I need to divide it because of the interaction with the waves
 				depthValue = saturate((depthValue - _DepthStart) / _DepthDistance);
