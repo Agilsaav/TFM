@@ -126,16 +126,16 @@ LODGroup:
   m_AnimateCrossFading: 0
   m_LastLODIsBillboard: 0
   m_LODs:
-  - screenRelativeHeight: 0.24287863
+  - screenRelativeHeight: 0.030477626
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 2354822}
-  - screenRelativeHeight: 0.12051184
+  - screenRelativeHeight: 0.015649322
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 2319812}
     - renderer: {fileID: 2323844}
-  - screenRelativeHeight: 0.03862438
+  - screenRelativeHeight: 0.0055036414
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 2323844}
@@ -204,7 +204,7 @@ MeshRenderer:
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
+  m_ScaleInLightmap: 0.060955252
   m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
@@ -282,7 +282,7 @@ MeshRenderer:
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
+  m_ScaleInLightmap: 0.031298645
   m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0

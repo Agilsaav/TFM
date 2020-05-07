@@ -10,6 +10,7 @@ namespace Gameplay
 
         PathManager manager;
         AudioSource audioSource;
+        bool InstatiateElement = false;
 
         private void Awake()
         {
@@ -24,10 +25,11 @@ namespace Gameplay
 
         private void OnTriggerEnter(Collider other)
         {
-            if(other.tag == "MainCamera")
+            if(other.tag == "MainCamera" && !InstatiateElement)
             {
                 PlaySound();
                 manager.InstantiateNextElement();
+                InstatiateElement = true;
                 Destroy(gameObject, audioSource.clip.length);
             }
 
