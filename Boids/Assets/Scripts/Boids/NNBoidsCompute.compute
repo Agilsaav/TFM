@@ -6,6 +6,7 @@ struct agentDataBuffer
 {
 	int NNCount;
 	int avoidCount;
+	int predNN;
 
 	float3 position;
 	float3 forwardDir;
@@ -13,13 +14,22 @@ struct agentDataBuffer
 	float3 alignmentMove; //Mean of directions
 	float3 cohesionMove;  //Mean of positions
 	float3 avoidanceMove; //Mean of difference between Position
+	float3 runDirection;
 
 };
 
+struct predDataBuffer
+{
+	float3 position;
+};
+
 RWStructuredBuffer<agentDataBuffer> boidsData;
+RWStructuredBuffer<predDataBuffer> predData;
 int numAgents;
+int numPred;
 float viewRadius;
 float avoidRadius;
+float predRadius;
 
 [numthreads(threadGroupSize, 1, 1)]
 void CSMain (uint3 id : SV_DispatchThreadID)
@@ -49,4 +59,18 @@ void CSMain (uint3 id : SV_DispatchThreadID)
 	boidsData[id.x].alignmentMove /= boidsData[id.x].NNCount;
 	boidsData[id.x].cohesionMove /= boidsData[id.x].NNCount;
 	boidsData[id.x].avoidanceMove /= boidsData[id.x].avoidCount;
+
+
+	for (int j = 0; j < numPred; j++)
+	{
+		float3 diffPred = boidsData[id.x].position - predData[j].position;
+		float distPred = (diffPred.x * diffPred.x) + (diffPred.y * diffPred.y) + (diffPred.z * diffPred.z);
+		if (distPred < predRadius * predRadius)
+		{
+			boidsData[id.x].runDirection += diffPred;
+			boidsData[id.x].predNN += 1;
+		}
+	}
+
+	boidsData[id.x].runDirection /= boidsData[id.x].predNN;
 }

@@ -14,15 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minSpeed: 1
   maxSpeed: 3
-  viewRadius: 10
+  viewRadius: 8
   avoidRadius: 5
   avoidanceWeight: 2
   alignmentWeight: 3
-  cohesionWeight: 10
+  cohesionWeight: 2
   cohesionSmoothTime: 0.5
   collisionWeight: 20
   collisionAvoidDistance: 15
   sphereCastRadius: 0.1
+  predatorRadius: 8
+  predatorWeight: 5
   obstaclesLayer:
     serializedVersion: 2
     m_Bits: 256

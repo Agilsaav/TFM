@@ -42,7 +42,8 @@ GraphicsSettings:
   - {fileID: 4800000, guid: bc8257ff10d7113478331e6daa4efbfc, type: 3}
   - {fileID: 4800000, guid: a625664b394b625489fcbf5fa1a87eef, type: 3}
   - {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
-  m_PreloadedShaders: []
+  m_PreloadedShaders:
+  - {fileID: 20000000, guid: 001f9f9d7f52b364e8c70492415effac, type: 2}
   m_SpritesDefaultMaterial: {fileID: 10754, guid: 0000000000000000f000000000000000,
     type: 0}
   m_CustomRenderPipeline: {fileID: 11400000, guid: 19ba41d7c0026c3459d37c2fe90c55a0,
@@ -54,7 +55,7 @@ GraphicsSettings:
   m_TierSettings: []
   m_LightmapStripping: 0
   m_FogStripping: 0
-  m_InstancingStripping: 0
+  m_InstancingStripping: 1
   m_LightmapKeepPlain: 1
   m_LightmapKeepDirCombined: 1
   m_LightmapKeepDynamicPlain: 1

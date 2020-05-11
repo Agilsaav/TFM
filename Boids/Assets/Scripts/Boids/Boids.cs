@@ -9,7 +9,8 @@ public class Boids : MonoBehaviour
     [SerializeField] BoidAgentSettings settings;
 
     BoidAgent[] boids;
-    int numBoidAgents;
+    PredatorAgent[] predators;
+    int numBoidAgents, numPredAgents;
 
     const int threadGroupSize = 1024;
 
@@ -18,6 +19,7 @@ public class Boids : MonoBehaviour
     {
         public int NNCount;
         public int avoidCount;
+        public int predNN;
 
         public Vector3 position;
         public Vector3 forwardDir;
@@ -25,13 +27,20 @@ public class Boids : MonoBehaviour
         public Vector3 alignmentMove; //Mean of directions
         public Vector3 cohesionMove;  //Mean of positions
         public Vector3 avoidanceMove; //Mean of difference between Position
+        public Vector3 runDirection;
+    }
 
+    public struct predDataBuffer
+    {
+        public Vector3 position;
     }
 
     private void Start()
     {
         boids = FindObjectsOfType<BoidAgent>();
+        predators = FindObjectsOfType<PredatorAgent>();
         numBoidAgents = boids.Length;
+        numPredAgents = predators.Length;
 
         foreach(BoidAgent boidAgent in boids)
         {
@@ -42,6 +51,7 @@ public class Boids : MonoBehaviour
     private void Update()
     {
         agentDataBuffer[] buffer = new agentDataBuffer[numBoidAgents];
+        predDataBuffer[] predBuffer = new predDataBuffer[numPredAgents];
 
         for (int i = 0; i < numBoidAgents; i++)
         {
@@ -49,14 +59,26 @@ public class Boids : MonoBehaviour
             buffer[i].forwardDir = boids[i].ForwardDir;
         }
 
+        for (int j = 0; j < numPredAgents; j++)
+        {
+            predBuffer[j].position = predators[j].Position;
+        }
+
         //Set compute shader properties and data:
-        int size = 3 * 5 * sizeof(float) + 2*sizeof(int); //size of data buffer
+        int size = 3 * 6 * sizeof(float) + 3 * sizeof(int); //size of data buffer
+        int size2 = 3 * sizeof(float);
 
         var computeBuffer = new ComputeBuffer(numBoidAgents, size);
         computeBuffer.SetData(buffer);
 
+        var computeBuffer2 = new ComputeBuffer(numPredAgents, size2);
+        computeBuffer2.SetData(predBuffer);
+
         computeShader.SetBuffer(0, "boidsData", computeBuffer);
+        computeShader.SetBuffer(0, "predData", computeBuffer2);
         computeShader.SetInt("numAgents", numBoidAgents);
+        computeShader.SetInt("numPred", numPredAgents);
+        computeShader.SetFloat("predRadius", settings.predatorRadius);
         computeShader.SetFloat("viewRadius", settings.viewRadius);
         computeShader.SetFloat("avoidRadius", settings.avoidRadius);
 
@@ -65,14 +87,14 @@ public class Boids : MonoBehaviour
 
         computeBuffer.GetData(buffer);
 
-        for (int i = 0; i<numBoidAgents; i++)
-        {        
-            boids[i].ComputeAgentBehavior(buffer[i].NNCount, buffer[i].avoidCount, buffer[i].alignmentMove, buffer[i].avoidanceMove, buffer[i].cohesionMove); //Compute vel
-            boids[i].UpdateAgent(); 
-
+        for (int i = 0; i < numBoidAgents; i++)
+        {
+            boids[i].ComputeAgentBehavior(buffer[i].NNCount, buffer[i].avoidCount, buffer[i].predNN,  buffer[i].alignmentMove, buffer[i].avoidanceMove, buffer[i].cohesionMove, buffer[i].runDirection); //Compute vel
+            boids[i].UpdateAgent();
         }
 
         computeBuffer.Release();
+        computeBuffer2.Release();
     }
 
 }

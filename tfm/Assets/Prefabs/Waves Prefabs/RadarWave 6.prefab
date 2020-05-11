@@ -119,7 +119,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialRadius: {x: 0.5, y: 0.5, z: 0.5}
-  maxDist: 125
+  maxDist: 100
   step: 1
   waveSeconds: 0.1
   alphaPercentatgeChange: 0.5

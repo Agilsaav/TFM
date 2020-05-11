@@ -19,5 +19,8 @@ public class BoidAgentSettings : ScriptableObject
     public float collisionAvoidDistance = 2.0f;
     public float sphereCastRadius = 0.1f;
 
+    public float predatorRadius = 5.0f;
+    public float predatorWeight = 1.0f;
+
     public LayerMask obstaclesLayer;
 }

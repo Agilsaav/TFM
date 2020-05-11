@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca160e3c0347fe9488525bcbbada5ac1, type: 3}
+  m_Name: New Predator Agent Settings
+  m_EditorClassIdentifier: 
+  minSpeed: 2
+  maxSpeed: 4
+  viewRadius: 2.5
+  avoidRadius: 1
+  avoidanceWeight: 1
+  alignmentWeight: 1
+  cohesionWeight: 1
+  cohesionSmoothTime: 0.5
+  collisionWeight: 10
+  collisionAvoidDistance: 15
+  sphereCastRadius: 0.1
+  obstaclesLayer:
+    serializedVersion: 2
+    m_Bits: 256
