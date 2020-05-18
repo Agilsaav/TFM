@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 
+
+//Human sounds Spawner class it spawn the sound at a random position around the spawner.
 namespace WavesBehavior
 {
     public class HumanSoundSpawner : MonoBehaviour

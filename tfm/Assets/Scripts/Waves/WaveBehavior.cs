@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using UnityEngine;
 
+
+//Wave behavior class where the behavior of a single sound wave is declared.
 namespace WavesBehavior
 {
     public class WaveBehavior : MonoBehaviour

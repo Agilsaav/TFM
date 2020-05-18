@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
 
 
+//Custom Effect: Underwater Distortion effect class
 [Serializable]
 [PostProcess(typeof(UWEffectRenderer), PostProcessEvent.AfterStack, "PeerPlay/UnderwaterImageEffect")]
 public sealed class UWEffect : PostProcessEffectSettings

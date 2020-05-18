@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
 
 
+//Custom Effect: Fog effect class
 [Serializable]
 [PostProcess(typeof(UWFogEffectRenderer), PostProcessEvent.AfterStack, "PeerPlay/FogEffect"), ImageEffectAllowedInSceneView]
 public sealed class UWFogEffect : PostProcessEffectSettings

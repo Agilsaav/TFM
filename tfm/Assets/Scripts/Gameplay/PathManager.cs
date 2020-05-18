@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
+//Class to create the path using PathElements. It spawn a new path element each time we colide with the previous one.
 namespace Gameplay
 {
     public class PathManager : MonoBehaviour

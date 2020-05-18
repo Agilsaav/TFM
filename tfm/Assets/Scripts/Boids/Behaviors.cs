@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 
+//Behaviors class: All the behaviors used by boid agents and predators.
 namespace Boids
 {
     public class Behaviors : MonoBehaviour

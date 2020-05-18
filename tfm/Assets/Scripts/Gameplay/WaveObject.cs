@@ -2,6 +2,8 @@
 using WavesBehavior;
 using UnityEngine;
 
+
+//Class not used: Make appear an object when colliding with the main wave.
 public class WaveObject : MonoBehaviour
 {
     MeshRenderer mesh;

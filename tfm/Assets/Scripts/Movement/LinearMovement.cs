@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+//Class not used: Moves an object in a direction.
 public class LinearMovement : MonoBehaviour
 {
     [SerializeField] float distanceToMove = 5.0f;

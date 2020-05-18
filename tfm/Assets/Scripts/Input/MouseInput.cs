@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Simple class to use the mouse to move the camer. Used for test only when the VR Hardware was not available.
 public class MouseInput : MonoBehaviour
 {
     [SerializeField] float speed = 1.0f;

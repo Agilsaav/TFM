@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 
+//Predator Manager class which controls all the movement of the predators at the scene
 namespace Boids
 {
     public class PredatorsManager : MonoBehaviour

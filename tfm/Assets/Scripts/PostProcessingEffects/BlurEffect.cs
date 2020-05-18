@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
 
 
+//Custom Effect: Blur effect class
 [Serializable]
 [PostProcess(typeof(BlurEffectRenderer), PostProcessEvent.AfterStack, "PeerPlay/BlurEffect")]
 public sealed class BlurEffect : PostProcessEffectSettings

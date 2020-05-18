@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+
+//Back Face culling class: Not used! Implemented in the wave behavior class
 public class BackFaceCulling : MonoBehaviour {
 
 	void Update () {

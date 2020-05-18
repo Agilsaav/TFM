@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 
+
+//Boid Spawner class used to spawn boids randomly in a radius.
 namespace Boids
 {
     public class BoidSpawner : MonoBehaviour

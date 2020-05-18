@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 
+
+//Camera shaker class: not used.
 public class CameraShaker : MonoBehaviour
 {
     [SerializeField] float power = 0.5f; //Effect on camera

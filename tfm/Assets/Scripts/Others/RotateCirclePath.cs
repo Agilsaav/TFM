@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 
+
+//Simple class to rotate the Circle Prefab used for the Path Element.
 public class RotateCirclePath : MonoBehaviour
 {
     [SerializeField] float speed = 1.0f;

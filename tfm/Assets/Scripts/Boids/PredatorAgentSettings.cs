@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 
+//Predators settings: All the predators will have the same settings!
 namespace Boids
 {
     [CreateAssetMenu(menuName = "Boids/PredatorSettings")]

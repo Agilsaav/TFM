@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 
+
+//Human sound behavior class where the behaviors of the human sounds are described, as well as the properties.
 namespace WavesBehavior
 {
     public class HumanSoundBehavior : MonoBehaviour

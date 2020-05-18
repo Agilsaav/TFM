@@ -4,6 +4,8 @@ using WavesBehavior;
 using Movement;
 using Boids;
 
+
+//Input Manager class
 namespace GameInput
 {
     public class InputManager : MonoBehaviour
@@ -24,7 +26,7 @@ namespace GameInput
         {
             //Move
            // Vector2 axis = moveAction.GetAxis(SteamVR_Input_Sources.Any);  //Activate with VR
-            Vector2 axis = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")); //Activate without VR !
+            Vector2 axis = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")); //Activate without VR! Only for testing.
             if (axis != Vector2.zero) mover.Move(axis);
 
             //Spawn main wave

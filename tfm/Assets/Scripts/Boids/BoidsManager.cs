@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-
+//Boids Manager class which controls all the movement of the boids at the scene
 namespace Boids
 {
     public class BoidsManager : MonoBehaviour
@@ -28,7 +28,7 @@ namespace Boids
             public Vector3 alignmentMove; //Mean of directions
             public Vector3 cohesionMove;  //Mean of positions
             public Vector3 avoidanceMove; //Mean of difference between Position
-            public Vector3 runDirection;
+            public Vector3 runDirection;  //Mean direction to get away from the predetors
         }
 
         public struct predDataBuffer
@@ -79,6 +79,7 @@ namespace Boids
 
             ComputeBuffer computeBuffer2 = null;
 
+            //SetPredators buffer:
             if (numPredAgents > 0)
             {
                 computeBuffer2 = new ComputeBuffer(numPredAgents, size2);
@@ -100,7 +101,7 @@ namespace Boids
 
             for (int i = 0; i < numBoidAgents; i++)
             {
-                boids[i].ComputeAgentBehavior(buffer[i].NNCount, buffer[i].avoidCount, buffer[i].predNN, buffer[i].alignmentMove, buffer[i].avoidanceMove, buffer[i].cohesionMove, buffer[i].runDirection, bTarget); //Compute vel
+                boids[i].ComputeAgentBehavior(buffer[i].NNCount, buffer[i].avoidCount, buffer[i].predNN, buffer[i].alignmentMove, buffer[i].avoidanceMove, buffer[i].cohesionMove, buffer[i].runDirection, bTarget); //Compute velocity
                 boids[i].UpdateAgent();
             }
 

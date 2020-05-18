@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 
+//Boids settings: All the boids will have the same settings!
 namespace Boids
 {
     [CreateAssetMenu(menuName = "Boids/AgentSettings")]

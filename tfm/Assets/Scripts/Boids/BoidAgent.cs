@@ -1,6 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
+//Boid Agent class: Inititalize the agent and uses the behaviors to update the velocity and position each frame.
 namespace Boids
 {
     public class BoidAgent : MonoBehaviour

@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+//Jellyfish Movement class: Moves the jellyfish up and down continuously.
 public class JellyfishMovement : MonoBehaviour
 {
     [SerializeField] float speed = 0.1f;
     [SerializeField] float maxMov = 2.0f;
-
 
     float maxPosition, minPosition;
 
@@ -17,7 +18,6 @@ public class JellyfishMovement : MonoBehaviour
         minPosition = transform.position.y - maxMov;
     }
 
-    // Update is called once per frame
     void Update()
     {
         Move();

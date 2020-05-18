@@ -46,8 +46,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waveObjects:
   - {fileID: 7921879158093013994, guid: 9e13d4c4eacbc1b448a02096383a6a21, type: 3}
-  numberOfWaves: 5
-  secondsBetweenWaves: 0.5
+  numberOfWaves: 05000000
+  secondsBetweenWaves:
+  - 0.5
   activateCollisions: 0
   timeBetweenWavesCollision: 5
   SpawnInTime: 1

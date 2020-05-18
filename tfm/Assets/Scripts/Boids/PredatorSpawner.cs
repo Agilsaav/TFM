@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 
+//Boid Spawner class used to spawn predators randomly in a radius.
 namespace Boids
 {
     public class PredatorSpawner : MonoBehaviour

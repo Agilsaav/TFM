@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 
+//Predator Agent class: Inititalize the agent and uses the behaviors to update the velocity and position each frame.
 namespace Boids
 {
     public class PredatorAgent : MonoBehaviour

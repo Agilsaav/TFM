@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using WavesBehavior;
 
+
+//Class used for the treasure at the end of the level: Opens the chest, play the sound and activates the spotLight
 public class Treasure : MonoBehaviour
 {
     [SerializeField] float distTreasure = 50.0f;

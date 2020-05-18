@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
+//VR movement class. Moves all the CameraRig with the axis input.
 namespace Movement
 {
     public class VRMovement : MonoBehaviour

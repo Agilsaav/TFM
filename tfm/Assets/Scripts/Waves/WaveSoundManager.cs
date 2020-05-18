@@ -1,8 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 
+//Wave Sound Manager used to spawn wave sounds using a single class.
 namespace WavesBehavior
 {
     public class WaveSoundManager : MonoBehaviour

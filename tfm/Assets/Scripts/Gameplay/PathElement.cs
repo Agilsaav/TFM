@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+//Class PathElement contains all the information of the element and plays the sound when it collides with the player.
 namespace Gameplay
 {
     public class PathElement : MonoBehaviour

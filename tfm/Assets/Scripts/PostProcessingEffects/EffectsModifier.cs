@@ -1,7 +1,8 @@
 ﻿using UnityEngine.Rendering.PostProcessing;
 using UnityEngine;
-using System;
 
+
+//Effects modifier class: It modifies the light in the scene and all the other custom effects.
 public class EffectsModifier : MonoBehaviour
 {
      public PostProcessProfile ppProfile;

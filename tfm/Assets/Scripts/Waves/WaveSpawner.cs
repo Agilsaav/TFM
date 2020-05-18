@@ -1,14 +1,16 @@
 ﻿using System.Collections;
 using UnityEngine;
 
+
+//Wave Spawner class where all the spawn behaviors are declared as well as the properties of each spawn.
 namespace WavesBehavior
 {
     public class WaveSpawner : MonoBehaviour
     {
         [SerializeField] GameObject[] waveObjects;
+        [SerializeField] int[] numberOfWaves;
+        [SerializeField] float[] secondsBetweenWaves;
 
-        [SerializeField] int numberOfWaves = 5;
-        [SerializeField] float secondsBetweenWaves = 0.5f;
         [SerializeField] bool activateCollisions = false;
         [SerializeField] float timeBetweenWavesCollision = 5.0f;
         [SerializeField] bool SpawnInTime = false;
@@ -84,11 +86,11 @@ namespace WavesBehavior
         {
             waveSoundManager.PlaySound(audioSource, volumeStart);
             audioPlaying = true;
-            for (int i = 0; i < numberOfWaves; i++)
+            for (int i = 0; i < numberOfWaves[index]; i++)
             {
                 GameObject wave = Instantiate(waveObjects[index], transform.position, Quaternion.identity);
                 if (index != 0) wave.GetComponent<WaveBehavior>().ActivateMainWave();
-                yield return new WaitForSeconds(secondsBetweenWaves);
+                yield return new WaitForSeconds(secondsBetweenWaves[index]);
             }
         }
     }
