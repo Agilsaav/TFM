@@ -8,9 +8,14 @@ In this project you will find 2 folders:
 
 **2)Tfm:** Full project folder. Here you will find the full Unity project.
 
-[![Alt text](https://i9.ytimg.com/vi/AnN_gtZECcY/mq1.jpg?sqp=CP_2ivYF&rs=AOn4CLCtaoXQgHwFJECI2Cd1QykhIjVUAQ)](https://www.youtube.com/watch?v=AnN_gtZECcY)
-
-
 **This project is still in development:**
 
 The thesis report will be uploaded when the project is finished containing all the information about the project.
+
+
+##Demo:
+
+In the following video you will find a demo of the Thesis.
+
+Click the image to view a Demo:
+[![Alt text](https://i9.ytimg.com/vi/AnN_gtZECcY/mq1.jpg?sqp=CP_2ivYF&rs=AOn4CLCtaoXQgHwFJECI2Cd1QykhIjVUAQ)](https://www.youtube.com/watch?v=AnN_gtZECcY)
