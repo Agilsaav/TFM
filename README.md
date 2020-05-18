@@ -3,5 +3,7 @@
 Underwater sound propagation is used as a means of communication by many living beings in the deep sea.It is not only used as a communication channel, but it also serves so that animals can recognize the surrounding environment by acting as an underwater sonar. In this project we will visualize this phenomenon in a Virtual Reality environment and show how human noise pollution interferes with underwater life.
 
 In this project you will find 2 folders:
+
 1)Boids: Boids Unity project where the movement of the fishes was developed. 
+
 2)Tfm: Full project folder. Here you will find the full Unity project.
