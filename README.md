@@ -4,6 +4,6 @@ Underwater sound propagation is used as a means of communication by many living 
 
 In this project you will find 2 folders:
 
-1)Boids: Boids Unity project where the movement of the fishes was developed. 
+**1)Boids:** Boids Unity project where the movement of the fishes was developed. 
 
-2)Tfm: Full project folder. Here you will find the full Unity project.
+**2)Tfm:** Full project folder. Here you will find the full Unity project.
