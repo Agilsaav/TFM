@@ -7,3 +7,8 @@ In this project you will find 2 folders:
 **1)Boids:** Boids Unity project where the movement of the fishes was developed. 
 
 **2)Tfm:** Full project folder. Here you will find the full Unity project.
+
+
+**This project is still in development**
+
+The thesis report will be uploaded when the project is finished containing all the information about the project.
