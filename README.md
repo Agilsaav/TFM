@@ -19,4 +19,4 @@ In the following video you will find a demo of the Master Thesis project.
 
 Click the image to view a Demo:
 
-[![Alt text](https://i9.ytimg.com/vi/AnN_gtZECcY/mq1.jpg?sqp=CP_2ivYF&rs=AOn4CLCtaoXQgHwFJECI2Cd1QykhIjVUAQ)](https://www.youtube.com/watch?v=AnN_gtZECcY)
+[![Alt text](https://i9.ytimg.com/vi/AnN_gtZECcY/mq1.jpg?sqp=CJjFp_cF&rs=AOn4CLCM0MacuxueKXeUQc9akkrb_0UskQ)](https://www.youtube.com/watch?v=AnN_gtZECcY)
